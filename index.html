@@ -21,11 +21,19 @@
 
     <title>Pokédex</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
-    
+    <div id="int">
+        <img id="previous" src="./assets/svg/arrow.svg">
+        <img id="next" src="./assets/svg/arrow.svg">
+    </div>
+
+
     <div id="pokedex">
         <div id="imgContainer">
             <img id="prevPkImg" src="" alt="prev-pokemon-image">
@@ -51,12 +59,10 @@
         <div id="pkAbilities"></div>
     </div>
 
-    <div id="int">
-        <img id="previous" src="./assets/svg/arrow.svg">
-        <img id="next" src="./assets/svg/arrow.svg">
-    </div>
+    
 
 
     <script src="./js/main.js"></script>
+    <script src="./js/bg-daytime.js"></script>
 </body>
 </html>

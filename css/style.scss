@@ -138,9 +138,9 @@ $bgcolorIMG: grey;
                     width: 7.5rem;
                     height: 7.5rem;
                 }
-                /*#prevPkImg, #nextPkImg:hover {
+                #prevPkImg, #nextPkImg:hover {
                     cursor: pointer;
-                }*/
+                }
             }
     
             #pkName {
@@ -205,13 +205,13 @@ $bgcolorIMG: grey;
 //GENERAL
 html {
     font-size: 62.5%;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.400)) , url(../assets/img/bg-day.jpg);
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-position: center;

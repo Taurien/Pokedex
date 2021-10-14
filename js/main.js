@@ -1,5 +1,6 @@
 "use strict"
 
+//
 function resetHeight(){
     document.body.style.height = window.innerHeight + 'px'
 }
@@ -7,6 +8,7 @@ window.addEventListener('resize', resetHeight)
 const mobileQuery = window.matchMedia('(max-width: 767px)')
 if (mobileQuery.matches) resetHeight()
 
+//
 let idPkmn = 1
 
 function traerInfo() {
@@ -16,6 +18,8 @@ function traerInfo() {
     .then( obj => showPkmn( obj ) )
     .catch( err => console.log(err) )
 }
+
+//
 const colors = {
     bug : '#a8b820',
     dark : '#705848',
@@ -36,11 +40,13 @@ const colors = {
     steel : '#b8b8d0',
     water : '#6890f0',
 }
-
+//
 const prevPkImg = document.querySelector('#prevPkImg')
 const imgPkm = document.querySelector('#pkImg')
 const nextPkImg = document.querySelector('#nextPkImg')
-
+prevPkImg.addEventListener('click', e => previousPkmn(e))
+nextPkImg.addEventListener('click', e => nextPkmn(e) )
+//
 const namePkmn = document.querySelector('#pkName')
 const typePkmn = document.querySelector('#pkType')
 const abilitiesPkmn = document.querySelector('#pkAbilities')
@@ -158,7 +164,7 @@ function nextPkmn (event) {
     traerInfo()
     event.stopPropagation()
 }
-
+//Event Listeners
 window.addEventListener('DOMContentLoaded', e => {
     traerInfo()
 })

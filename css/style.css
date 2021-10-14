@@ -100,9 +100,6 @@
   body #pokedex #imgContainer {
     width: 14rem;
     height: 14rem;
-    /*#prevPkImg, #nextPkImg:hover {
-                    cursor: pointer;
-                }*/
   }
   body #pokedex #imgContainer img {
     background-color: grey;
@@ -117,6 +114,9 @@
   body #pokedex #imgContainer #prevPkImg, body #pokedex #imgContainer #nextPkImg {
     width: 7.5rem;
     height: 7.5rem;
+  }
+  body #pokedex #imgContainer #prevPkImg, body #pokedex #imgContainer #nextPkImg:hover {
+    cursor: pointer;
   }
   body #pokedex #pkName {
     font-size: 3.5rem;
@@ -171,6 +171,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 body {
@@ -182,8 +183,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100vh;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.4))), url(../assets/img/bg-day.jpg);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.4)), url(../assets/img/bg-day.jpg);
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-position: center;
