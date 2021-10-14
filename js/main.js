@@ -113,7 +113,7 @@ function stats (el) {
     stats.forEach(element => {
         //console.log(element.stat.name)
         //console.log(element.base_stat)
-        let percent = (element.base_stat * 100) / 200 
+        let percent = (element.base_stat * 100) / 255
 
         let displayStat = document.createElement('div')
         displayStat.classList.add('displayStat')
