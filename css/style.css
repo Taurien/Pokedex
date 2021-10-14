@@ -49,7 +49,7 @@
   }
   body #pokedex #pkStatsContainer {
     width: 80%;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   body #pokedex #pkStatsContainer .displayStat .stat-value {
     width: 100%;
@@ -60,7 +60,7 @@
     padding: 0.3rem;
   }
   body #pokedex #pkStatsContainer .displayStat .progressbar > div {
-    height: 0.4rem;
+    height: 0.3rem;
     border-radius: 1rem;
   }
   body #pokedex #pkAbilities {
@@ -285,15 +285,11 @@ body #pokedex #pkStatsContainer .displayStat .stat-value {
 
 body #pokedex #pkStatsContainer .displayStat .progressbar {
   background-color: #20201F;
-  border-radius: 2rem;
-  padding: 0.3rem;
 }
 
 body #pokedex #pkStatsContainer .displayStat .progressbar > div {
   background-color: #F7901E;
   /* Adjust with JavaScript */
-  height: 0.4rem;
-  border-radius: 1rem;
 }
 
 body #pokedex #pkAbilities span {

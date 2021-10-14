@@ -58,7 +58,7 @@ $bgcolorIMG: grey;
     
             #pkStatsContainer {
                 width: $innerWidthMobile;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
     
                 .displayStat {
                     .stat-value {
@@ -71,7 +71,7 @@ $bgcolorIMG: grey;
                     }
                         
                     .progressbar>div {
-                        height: 0.4rem;
+                        height: 0.3rem;
                         border-radius: 1rem;
                     }
     
@@ -283,15 +283,11 @@ body {
                 }
                 .progressbar {
                     background-color: #20201F;
-                    border-radius: 2rem;
-                    padding: 0.3rem;
                 }
                     
                 .progressbar>div {
                     background-color: #F7901E; /* Adjust with JavaScript */
                     //width: value in JS;
-                    height: 0.4rem;
-                    border-radius: 1rem;
                 }
 
                 #pkStats {
