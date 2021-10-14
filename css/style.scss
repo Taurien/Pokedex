@@ -24,22 +24,22 @@ $bgcolorIMG: grey;
             border-radius: 2rem;
     
             #imgContainer {
-                width: 11rem;
-                height: 11rem;
+                width: 15rem;
+                height: 15rem;
                 
                 img {
                     background-color: $bgcolorIMG;
-                    padding: 1rem;
+                    padding: 0.8rem;
 
                 }
                 #prevPkImg {
-                    right: 4rem;
+                    right: 5rem;
                 }
                 #pkImg {
     
                 }
                 #nextPkImg {
-                    left: 4rem;
+                    left: 5rem;
                 }
                 #prevPkImg, #nextPkImg {
                     width: 6rem;
@@ -85,7 +85,7 @@ $bgcolorIMG: grey;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
 
@@ -112,13 +112,13 @@ $bgcolorIMG: grey;
     
         #pokedex {
             height: 80%;
-            width: 35%;//X
+            width: 34%;//X
 
             border-radius: 2rem;
     
             #imgContainer {
-                width: 14rem;
-                height: 14rem;
+                width: 16rem;
+                height: 16rem;
                 
                 img {
                     background-color: $bgcolorIMG;
@@ -126,17 +126,17 @@ $bgcolorIMG: grey;
 
                 }
                 #prevPkImg {
-                    right: 5rem;
+                    right: 6rem;
                 }
                 #pkImg {
     
                 }
                 #nextPkImg {
-                    left: 5rem;
+                    left: 6rem;
                 }
                 #prevPkImg, #nextPkImg {
-                    width: 7.5rem;
-                    height: 7.5rem;
+                    width: 7rem;
+                    height: 7rem;
                 }
                 #prevPkImg, #nextPkImg:hover {
                     cursor: pointer;
@@ -154,7 +154,7 @@ $bgcolorIMG: grey;
     
             #pkStatsContainer {
                 width: $innerWidthMobile;
-                font-size: 1.7rem;
+                font-size: 1.6rem;
     
                 .displayStat {
                     .stat-value {
@@ -181,7 +181,7 @@ $bgcolorIMG: grey;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
 
@@ -223,7 +223,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
         
         background-color: white;
 
@@ -267,7 +267,7 @@ body {
             span {
                 text-transform: capitalize;
                 padding: 0 1.5rem;
-                border-radius: 1.4rem;
+                border-radius: 2rem;
             }
         }
 
