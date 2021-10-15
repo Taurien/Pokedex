@@ -60,8 +60,12 @@ const statsContainer = document.querySelector('#pkStatsContainer')
 const prevPk = document.getElementById('previous')
 const nextPk = document.getElementById('next')
 prevPk.addEventListener('click', e => previousPkmn(e))
-nextPk.addEventListener('click', e => nextPkmn(e) )
-
+nextPk.addEventListener('click', e => nextPkmn(e))
+window.addEventListener('keydown', (e) => {
+    //console.log(`key=${e.key},code=${e.code}`)
+    if (e.key === 'ArrowLeft') previousPkmn(e)
+    if (e.key === 'ArrowRight') nextPkmn(e)
+})
 
 function showPkmn (infoPkmn) {
     //console.log(infoPkmn)
