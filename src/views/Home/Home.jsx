@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 // context and custom hook
 import InfoContext from '../../context/InfoContext'
-import { useFetch } from '../../hooks/useFetch'
+import { useFetch } from '../../hooks/useFetch';
 
 // components
 import Form from '../../components/Home/Form/Form'
@@ -16,7 +16,7 @@ import './Home.style.scss'
 const Home = () => {
   
   // states  
-  const { formKeys, handleFormKeys, info, setInfo } = useContext(InfoContext)
+  const { endpoints, formKeys, handleFormKeys, info, setInfo } = useContext(InfoContext)
 
   // data and function from custom fetch
   const { triggerFetch, fetchedData, isloading, error } = useFetch()
@@ -36,25 +36,30 @@ const Home = () => {
       triggerFetch('pokemon', random)
     }
 
+    const randomSearch = e => {
+      // e.preventDefault()
+      // const randomEND = Math.ceil(Math.random() * 47) + 1
+      // console.log(endpoints[randomEND])
+      // const random = Math.ceil(Math.random() * 898) + 1
+      // handleFormKeys({
+      //   requested: {
+      //     //  TODO endpoint: 'pokemon',
+      //     id_OR_name: random
+      //   }
+      // })
+      // triggerFetch('pokemon', random)
+    }
+
     useEffect(() => {
 
       const dataToContext = () => {
         setInfo(fetchedData)
+        // console.log(formKeys.requested.endpoint)
       }
   
       dataToContext()
     }, [fetchedData, setInfo])
 
-    // const completelyRandomSearch = () => {
-    //   handleFormKeys({
-    //     requested: {
-    //       // endpoint: todefine,
-    //       // id_OR_name: (Math.ceil(Math.random() * 898) + 1)
-    //     }
-    //   })
-    // triggerFetch(randomEndpoint, random)
-    // }
-    
     // const shiftPkmn = (value) => {
     //   if (value === 'next') {
     //     setFormValues({
@@ -74,43 +79,34 @@ const Home = () => {
 
   return (
         <div>
-        <h1>hi</h1>
+        <h1>PokeSearch</h1>
 
-        <Form />
+        <Form triggerFetch={triggerFetch} />
 
         <button onClick={randomPkmn}>Random Pokemon</button>
 
-        {
-        // dataAPI? 
-        //   <>
-        //     <Pkmn data={dataAPI} />
-        //     <div>
-        //       {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
-        //       {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
-        //     </div>
-        //     {
-        //       dataAPI.forms? 
-        //       <Link to="/pokeinfo">
-        //       <button>See more abt this poke</button>
-        //       </Link> 
-        //     : null
-        //     }
-        //   </>
-        // : <Loader /> 
-        }
+        <button onClick={randomSearch}>Random Search</button>
 
-        {
-            isloading? <p>Loading</p> : <p>Showing results or nothing</p>
-        }
+        {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
+        {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
+
+        { isloading && <Loader/> }
 
         {
           info? 
             <>
               <p>{info.id}</p>
               <p>{info.name}</p>
+              <Link to={`pokeinfo/${info.name}`}>
+                <button>See more abt this</button>
+              </Link> 
             </>
-          : <></>
+          : <p>what are u looking for</p>
         }
+
+            <p>
+              Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.
+            </p>
 
         </div>
   )

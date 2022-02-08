@@ -7,17 +7,19 @@ export const useFetch = () => {
     const [ isloading, setIsLoading ] = useState(false);
     const [ error, setError ] = useState('');
 
-    const triggerFetch = async (endpoint, id_OR_name) => {
+    const triggerFetch = (endpoint, id_OR_name) => {
 
+        setFetchedData(null)
         setIsLoading(true)
-
-            await axios.get(`https://pokeapi.co/api/v2/${endpoint}/${id_OR_name}`)
-                .then(({data}) => {
+        
+        axios.get(`https://pokeapi.co/api/v2/${endpoint}/${id_OR_name}`)
+            .then(({data}) => {
                     setFetchedData(data)
                 })
                 .catch(err => console.log(err))
-
-        setIsLoading(false)
+                .finally(() => {
+                    setIsLoading(false)
+                })
 
     }
 

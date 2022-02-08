@@ -3,7 +3,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import { InfoContextProvider } from './context/InfoContext'
 
 import Home from './views/Home/Home';
-import PkmnDisplay from "./views/PkmnDisplay/PkmnDisplay";
+import ResultDisplay from "./views/ResultDisplay/ResultDisplay";
 
 import './App.css';
 
@@ -16,7 +16,7 @@ function App() {
       <InfoContextProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="pokeinfo" element={<PkmnDisplay />} />
+          <Route path="pokeinfo/:result" element={<ResultDisplay />} />
         </Routes>
       </InfoContextProvider>
       </FormProvider>
