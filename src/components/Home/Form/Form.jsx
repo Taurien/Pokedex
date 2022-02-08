@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { set, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 // context and custom hook
 import InfoContext from '../../../context/InfoContext'
@@ -17,10 +17,11 @@ const Form = ({ triggerFetch }) => {
 
     // data and functions from contexts
     const { formKeys, handleFormKeys, info, setInfo } = useContext(InfoContext)
-    const { watch, register, unregister, resetField, handleSubmit, formState: { errors } } = useFormContext();
+    const { watch, register, unregister, reset, resetField, handleSubmit, formState: { errors } } = useFormContext();
 
     // onSubmit form function
     const onSubmit = data => {
+        // console.log('si llego')
         console.log(data)
         // data is an object ... extract the keys 
         // const keys = Object.keys(data)
@@ -41,53 +42,51 @@ const Form = ({ triggerFetch }) => {
         console.log(e.target.value)
 
         //
-        // if (pastValue !== e.target.value) {
-        //     unregister(pastValue.toLowerCase())
-        //     setPastValue(e.target.value)
-        // }
+        if (pastValue !== e.target.value) {
+            unregister(pastValue.toLowerCase())
+            setPastValue(e.target.value)
+        }
         
-        // //
-        // setPastValue(e.target.value)
-        // register(pastValue.toLowerCase())
+        //
+        setPastValue(e.target.value)
     }
 
     return (
         <div>
             
-            <form onSubmit={handleSubmit(onSubmit)} onChange={cleanForm} >
+            <form onSubmit={handleSubmit(onSubmit)} onChange={cleanForm}>
 
                 {/* <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} /> */}
 
                 <div className='test'>
 
-                    {/* a comment */}  
-                    {
-                        Options(
-                        'Berry',
-                        'berriesOptions',
-                        'berry',
-                        {
-                            'berry': 'all the berries',
-                            'berry-firmness': 'by its firmness',
-                            'berry-flavor': 'by its flavor',
+                      
+
+                    <Options
+                        labelTxt={'Berry'}
+                        options={'berriesOptions'}
+                        regi={'berry'}
+                        values={
+                        {'berry': 'all the berries',
+                        'berry-firmness': 'by its firmness',
+                        'berry-flavor': 'by its flavor'}
                         }
-                        )
-                    }
-                    {/* a comment */}
-                    {
-                        Options(
-                        'Contest',
-                        'contestsOptions',
-                        'berry',
-                        {
-                            'contest-type': 'by its type',
-                            'contest-effect': 'by its effect', // ID
-                            'super-contest-effect': 'by its contest effect', // ID
+                    />
+
+                    
+                    <Options
+                        labelTxt={'Contest'}
+                        options={'contestsOptions'}
+                        regi={'berry'}
+                        values={
+                        {'contest-type': 'by its type',
+                        'contest-effect': 'by its effect', // ID
+                        'super-contest-effect': 'by its contest effect', // ID}
                         }
-                        )
-                    }
-                    {/* a comment */}
-                    {
+                        }
+                    />
+                    
+                    {/*{
                         Options(
                         'Encounter',
                         'encountersOptions',
@@ -99,7 +98,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Evolutions',
@@ -111,7 +110,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Games',
@@ -125,7 +124,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Item',
@@ -140,7 +139,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Location',
@@ -153,7 +152,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Machine',
@@ -164,7 +163,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Move',
@@ -181,7 +180,7 @@ const Form = ({ triggerFetch }) => {
                         }
                         )
                     }
-                    {/* a comment */}
+                    
                     {
                         Options(
                         'Pokemon',
@@ -207,7 +206,7 @@ const Form = ({ triggerFetch }) => {
 
                         }
                         )
-                    }
+                    } */}
                 </div>
 
 

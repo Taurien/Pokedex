@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react'
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 import InfoContext from '../../../context/InfoContext'
 
 import './Options.style.scss'
 
-const Options = (labelTxt, options, regi, values) => {
+const Options = ({labelTxt, options, regi, values}) => {
 
   // data and functions from contexts
   const { formKeys, handleFormKeys } = useContext(InfoContext)
@@ -15,7 +15,7 @@ const Options = (labelTxt, options, regi, values) => {
   const reg = labelTxt.toLowerCase()
   
   const test5 = (e) => {
-    console.log(e)
+    // console.log(e)
 
     handleFormKeys({ [options]: true })
     
@@ -29,11 +29,13 @@ const Options = (labelTxt, options, regi, values) => {
   <option key={key} value={key}>{values[key]}</option>
   )
 
+
   return (
   <div className='options-container' onChange={test5} >
       <label>
         {labelTxt}
-        <input {...register(labelTxt, { required: true })} type="radio" value={labelTxt} name='label' />
+        <input  type="radio" value={labelTxt} name='label' />
+        {/* {...register('end', { required: true, shouldUnregister: true, })} */}
       </label>
       {
         optIsChecked &&
