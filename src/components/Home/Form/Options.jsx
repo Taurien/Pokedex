@@ -10,12 +10,9 @@ const Options = ({labelTxt, options, regi, values}) => {
   const { formKeys, handleFormKeys } = useContext(InfoContext)
   const { watch, register, unregister, reset, resetField, formState: { errors } } = useFormContext()
 
-  const [ isChecked, setIsChecked ] = useState(false)
-  
   const reg = labelTxt.toLowerCase()
   
-  const test5 = (e) => {
-    // console.log(e)
+  const triggerOpt = (e) => {
 
     handleFormKeys({ [options]: true })
     
@@ -31,7 +28,7 @@ const Options = ({labelTxt, options, regi, values}) => {
 
 
   return (
-  <div className='options-container' onChange={test5} >
+  <div className='options-container' onChange={triggerOpt} >
       <label>
         {labelTxt}
         <input  type="radio" value={labelTxt} name='label' />

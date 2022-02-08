@@ -22,11 +22,11 @@ const Form = ({ triggerFetch }) => {
     // onSubmit form function
     const onSubmit = data => {
         // console.log('si llego')
-        console.log(data)
+        // console.log(data)
         // data is an object ... extract the keys 
-        // const keys = Object.keys(data)
-        // const key1 = keys[1]
-        // const key2 = keys[2]
+        const keys = Object.keys(data)
+        const key1 = keys[0]
+        const key2 = keys[1]
 
         // //
         // handleFormKeys({
@@ -35,11 +35,11 @@ const Form = ({ triggerFetch }) => {
         //         id_OR_name: data[key1],
         //     }
         // })
-        // triggerFetch(data[key2], data[key1])
+        triggerFetch(data[key2], data[key1])
     }
 
     const cleanForm = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
 
         //
         if (pastValue !== e.target.value) {
@@ -86,127 +86,111 @@ const Form = ({ triggerFetch }) => {
                         }
                     />
                     
-                    {/*{
-                        Options(
-                        'Encounter',
-                        'encountersOptions',
-                        'berry',
-                        {
-                            'encounter-method': 'by its method', //VERIFY
-                            'encounter-condition': 'by its condition',
-                            'encounter-condition-value': 'by its condition value',
+                    <Options
+                        labelTxt={'Encounter'}
+                        options={'encountersOptions'}
+                        regi={'berry'}
+                        values={
+                        {'encounter-method': 'by its method', //VERIFY
+                        'encounter-condition': 'by its condition',
+                        'encounter-condition-value': 'by its condition value',}
                         }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Evolutions',
-                        'evolutionsOptions',
-                        'berry',
-                        {
-                            'evolution-chain': 'by its evol-chain', //ID
-                            'evolution-trigger': 'by triggers',
-                        }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Games',
-                        'gamesOptions',
-                        'berry',
-                        {
-                            'generation': 'by generation',
-                            'pokedex': 'by dex',
-                            'version': 'by version',
-                            'version-group': 'by version group',
-                        }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Item',
-                        'itemsOptions',
-                        'berry',
-                        {
-                            'item': 'all the items',
-                            'item-attribute': 'by its attribute',
-                            'item-category': 'by its category',
-                            'item-fling-effect': 'by its fling-effect',
-                            'item-pocket': 'by pocket',
-                        }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Location',
-                        'locationsOptions',
-                        'berry',
-                        {
-                            'location': 'all locations',
-                            'location-area': 'by location area',
-                            'pal-park-area': 'by pal park area',
-                        }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Machine',
-                        'machinesOptions',
-                        'berry',
-                        {
-                            'machine': 'machine', //ID
-                        }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Move',
-                        'movesOptions',
-                        'berry',
-                        {
-                            'move': 'all',
-                            'move-ailment': 'by ailment',
-                            'move-battle-style': 'by battlestyle',
-                            'move-category': 'by category',
-                            'move-damage-class': 'by DMG class',
-                            'move-learn-method': 'by learn method',
-                            'move-target': 'by target',
-                        }
-                        )
-                    }
-                    
-                    {
-                        Options(
-                        'Pokemon',
-                        'pokemonsOptions',
-                        'berry',
-                        {
-                            'ability': 'by ability',
-                            'characteristic': 'by characteristic', //ID
-                            'egg-group': 'by egg-group',
-                            'gender': 'by gender',
-                            'growth-rate': 'by growth rate',
-                            'nature': 'by nature',
-                            'pokeathlon-stat': 'by pokeathlon-stat',
-                            'pokemon': 'by PKMN',
-                            'pokemon/{id or name}/encounters': 'by location area', // CHECK ENDPOINT
-                            'pokemon-color': 'by pkmn color',
-                            'pokemon-form': 'by pkmn form',
-                            'pokemon-habitat': 'by pkmn habitat',
-                            'pokemon-shape': 'by pkmn shape',
-                            'pokemon-species': 'by pkmn species',
-                            'stat': 'by stat',
-                            'type': 'by type',
+                    />
 
+                    <Options
+                        labelTxt={'Evolutions'}
+                        options={'evolutionsOptions'}
+                        regi={'berry'}
+                        values={
+                        {'evolution-chain': 'by its evol-chain', //ID
+                        'evolution-trigger': 'by triggers',}
                         }
-                        )
-                    } */}
+                    />
+                    
+                    <Options
+                        labelTxt={'Games'}
+                        options={'gamesOptions'}
+                        regi={'berry'}
+                        values={
+                        {'generation': 'by generation',
+                        'pokedex': 'by dex',
+                        'version': 'by version',
+                        'version-group': 'by version group',}
+                        }
+                    />
+
+                    <Options
+                        labelTxt={'Item'}
+                        options={'itemsOptions'}
+                        regi={'berry'}
+                        values={
+                        {'item': 'all the items',
+                        'item-attribute': 'by its attribute',
+                        'item-category': 'by its category',
+                        'item-fling-effect': 'by its fling-effect',
+                        'item-pocket': 'by pocket',}
+                        }
+                    />
+
+                    <Options
+                        labelTxt={'Location'}
+                        options={'locationsOptions'}
+                        regi={'berry'}
+                        values={
+                        {'location': 'all locations',
+                        'location-area': 'by location area',
+                        'pal-park-area': 'by pal park area',}
+                        }
+                    />
+
+                    <Options
+                        labelTxt={'Machine'}
+                        options={'machinesOptions'}
+                        regi={'berry'}
+                        values={
+                        {'machine': 'machine', //ID
+                        }
+                        }
+                    />
+
+                    <Options
+                        labelTxt={'Move'}
+                        options={'movesOptions'}
+                        regi={'berry'}
+                        values={
+                        {'move': 'all',
+                        'move-ailment': 'by ailment',
+                        'move-battle-style': 'by battlestyle',
+                        'move-category': 'by category',
+                        'move-damage-class': 'by DMG class',
+                        'move-learn-method': 'by learn method',
+                        'move-target': 'by target',}
+                        }
+                    />
+
+                    <Options
+                        labelTxt={'Pokemon'}
+                        options={'pokemonsOptions'}
+                        regi={'berry'}
+                        values={
+                        {'ability': 'by ability',
+                        'characteristic': 'by characteristic', //ID
+                        'egg-group': 'by egg-group',
+                        'gender': 'by gender',
+                        'growth-rate': 'by growth rate',
+                        'nature': 'by nature',
+                        'pokeathlon-stat': 'by pokeathlon-stat',
+                        'pokemon': 'by PKMN',
+                        'pokemon/{id or name}/encounters': 'by location area', // CHECK ENDPOINT
+                        'pokemon-color': 'by pkmn color',
+                        'pokemon-form': 'by pkmn form',
+                        'pokemon-habitat': 'by pkmn habitat',
+                        'pokemon-shape': 'by pkmn shape',
+                        'pokemon-species': 'by pkmn species',
+                        'stat': 'by stat',
+                        'type': 'by type',}
+                        }
+                    />
                 </div>
 
 
