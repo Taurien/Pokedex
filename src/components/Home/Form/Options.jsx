@@ -4,7 +4,7 @@ import InfoContext from '../../../context/InfoContext'
 
 import './Options.style.scss'
 
-const Options = ({labelTxt, options, regi, values}) => {
+const Options = ({labelTxt, svg, options, regi, values}) => {
 
   // data and functions from contexts
   const { formKeys, handleFormKeys } = useContext(InfoContext)
@@ -28,12 +28,15 @@ const Options = ({labelTxt, options, regi, values}) => {
 
 
   return (
-  <div className='options-container' onChange={triggerOpt} >
-      <label>
-        {labelTxt}
-        <input  type="radio" value={labelTxt} name='label' />
+  <div className={`option_container ${reg}_container`} onChange={triggerOpt} >
+      <div className='label_c'>
+        <input  type="radio" value={labelTxt} name='label' id={reg} />
         {/* {...register('end', { required: true, shouldUnregister: true, })} */}
-      </label>
+        <label htmlFor={reg}>
+          <span>{svg}</span>
+          <span>{labelTxt}</span>
+        </label>
+      </div>
       {
         optIsChecked &&
         <>

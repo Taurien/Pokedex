@@ -6,12 +6,16 @@ import InfoContext from '../../context/InfoContext'
 import Pkmn from '../../components/Custom/Pkmn/Pkmn'
 import Result from '../../components/ResultDisplay/Result'
 
+import './ResultDisplay.style.scss'
+
 const PkmnDisplay = () => {
 
-    const { formKeys, handleFormKeys, info, setInfo } = useContext(InfoContext)
+    const { requested, formKeys, info } = useContext(InfoContext)
+
+    if (requested.endpoint === 'pokemon') console.log('hiii')
 
     return (
-        <div>
+        <div className='info_view'>
             <h1>holi</h1>
             <p>showing results for: {`${info.name}`}</p>
 

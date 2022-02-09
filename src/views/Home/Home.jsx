@@ -27,19 +27,18 @@ const Home = () => {
     const randomPkmn = e => {
       e.preventDefault()
       const random = Math.ceil(Math.random() * 898) + 1
-      handleFormKeys({
-        requested: {
-          endpoint: 'pokemon',
-          id_OR_name: random
-        }
-      })
+      // handleFormKeys({
+      //   requested: {
+      //     endpoint: 'pokemon',
+      //     id_OR_name: random
+      //   }
+      // })
       triggerFetch('pokemon', random)
     }
 
     const randomSearch = e => {
       // e.preventDefault()
-      // const randomEND = Math.ceil(Math.random() * 47) + 1
-      // console.log(endpoints[randomEND])
+      // const randomEND = Math.ceil(Math.random() * 46) + 1
       // const random = Math.ceil(Math.random() * 898) + 1
       // handleFormKeys({
       //   requested: {
@@ -47,7 +46,7 @@ const Home = () => {
       //     id_OR_name: random
       //   }
       // })
-      // triggerFetch('pokemon', random)
+      // triggerFetch(endpoints[randomEND], random)
     }
 
     useEffect(() => {
@@ -78,37 +77,40 @@ const Home = () => {
     // }
 
   return (
-        <div>
-        <h1>PokeSearch</h1>
 
-        <Form triggerFetch={triggerFetch} />
+    <div className='home_view'>
+      <h1>PokeSearch</h1>
 
+      <Form triggerFetch={triggerFetch} />
+
+      <div className='random_btns'>
         <button onClick={randomPkmn}>Random Pokemon</button>
-
         <button onClick={randomSearch}>Random Search</button>
+      </div>
 
-        {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
-        {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
 
-        { isloading && <Loader/> }
+      {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
+      {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
 
-        {
-          info? 
-            <>
-              <p>{info.id}</p>
-              <p>{info.name}</p>
-              <Link to={`pokeinfo/${info.name}`}>
-                <button>See more abt this</button>
-              </Link> 
-            </>
-          : <p>what are u looking for</p>
-        }
+      { isloading && <Loader/> }
 
-            <p>
-              Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.
-            </p>
+      {
+        info? 
+          <div className='prev_result'>
+            <p>{info.id}</p>
+            <p>{info.name}</p>
+            <Link to={`pokeinfo/${info.name}`}>
+              <button>See more abt this</button>
+            </Link> 
+          </div>
+        : <p>what are u looking for</p>
+      }
 
-        </div>
+      <p>
+        Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.
+      </p>
+
+    </div>
   )
 }
 

@@ -44,7 +44,7 @@ const InfoContextProvider = ({ children }) => {
     'nature',
     'pokeathlon-stat',
     'pokemon',
-    'pokemon/{id or name}/encounters',
+    // 'pokemon/{id or name}/encounters',
     'pokemon-color',
     'pokemon-form',
     'pokemon-habitat',
@@ -67,6 +67,11 @@ const InfoContextProvider = ({ children }) => {
     // pokemonsOptions: false,
   })
 
+  const [ requested, setRequested ] = useState({
+    endpoint: null,
+    id_OR_name: null,
+  })
+
   // to save fetched data from api
   const [ info, setInfo ] = useState({})
 
@@ -82,6 +87,8 @@ const InfoContextProvider = ({ children }) => {
     endpoints,
     formKeys,
     handleFormKeys,
+    requested,
+    setRequested,
     info,
     setInfo
   }
