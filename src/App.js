@@ -6,7 +6,8 @@ import Home from './views/Home/Home';
 import ResultDisplay from "./views/ResultDisplay/ResultDisplay";
 import Test from "./views/Test/Test"
 
-import './App.css';
+import './App.scss';
+import NavBar from "./components/Custom/NavBar/NavBar";
 
 function App() {
   const methods = useForm()
@@ -15,7 +16,8 @@ function App() {
       <FormProvider {...methods} >
       <InfoContextProvider>
 
-        {/* //* works */}
+        <NavBar />
+
           <Routes>
             <Route path="/pokedex">
               <Route index element={<Home />} />

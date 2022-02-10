@@ -1,0 +1,72 @@
+.pkmn {
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 40%;
+    
+    border: 1px solid black;
+
+    .pk_uid {
+
+        &:first-child {
+            text-transform: capitalize;
+        }
+        &:last-child {
+
+        }
+    }
+    
+    .pk_img {
+        border-radius:  50%;
+        overflow: hidden;
+        background-color: whitesmoke;
+        
+        img {
+            
+        }
+    }
+
+    .pk_WnH {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    span {
+
+    }
+
+    .pk_abilities {
+        display: inline-flex;
+    }
+
+    .pk_stats {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        text-transform: capitalize;
+
+        .bar {
+            background-color: #20201F;
+            border-radius: 2rem;
+            padding: 0.3rem;
+        }
+            
+        .bar>div {
+            background-color: #F7901E;
+            height: 0.4rem;
+            border-radius: 1rem;
+        }
+    }
+
+    .pk_types {
+        display: inline-flex;
+    }
+
+    .pk_indices {
+
+    }
+}

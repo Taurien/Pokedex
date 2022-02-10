@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // context and custom hook
 import InfoContext from '../../context/InfoContext'
@@ -14,9 +14,11 @@ import Pkmn from '../../components/Custom/Pkmn/Pkmn'
 import './Home.style.scss'
 
 const Home = () => {
+
+  const navigate = useNavigate()
   
   // states  
-  const { endpoints, formKeys, handleFormKeys, info, setInfo } = useContext(InfoContext)
+  const { endpoints, formKeys, handleFormKeys, setRequested, info, setInfo } = useContext(InfoContext)
 
   // data and function from custom fetch
   const { triggerFetch, fetchedData, isloading, error } = useFetch()
@@ -27,27 +29,25 @@ const Home = () => {
     const randomPkmn = e => {
       e.preventDefault()
       const random = Math.ceil(Math.random() * 898) + 1
-      // handleFormKeys({
-      //   requested: {
-      //     endpoint: 'pokemon',
-      //     id_OR_name: random
-      //   }
-      // })
+      setRequested({
+          endpoint: 'pokemon',
+          id_OR_name: random
+      })
       triggerFetch('pokemon', random)
     }
 
-    const randomSearch = e => {
-      // e.preventDefault()
-      // const randomEND = Math.ceil(Math.random() * 46) + 1
-      // const random = Math.ceil(Math.random() * 898) + 1
-      // handleFormKeys({
-      //   requested: {
-      //     //  TODO endpoint: 'pokemon',
-      //     id_OR_name: random
-      //   }
-      // })
-      // triggerFetch(endpoints[randomEND], random)
-    }
+    // const randomSearch = e => {
+    //   e.preventDefault()
+    //   const randomEND = Math.ceil(Math.random() * 46) + 1
+    //   const random = Math.ceil(Math.random() * 898) + 1
+    //   handleFormKeys({
+    //     requested: {
+    //       //  TODO endpoint: 'pokemon',
+    //       id_OR_name: random
+    //     }
+    //   })
+    //   triggerFetch(endpoints[randomEND], random)
+    // }
 
     useEffect(() => {
 
@@ -76,17 +76,19 @@ const Home = () => {
     //   }
     // }
 
+    const triggerTest1 = () => {
+      navigate('test')
+      console.log('soy 1 T')
+    }
+
   return (
 
     <div className='home_view'>
-      <h1>PokeSearch</h1>
+      <h1>PokeSearch🔍</h1>
 
       <Form triggerFetch={triggerFetch} />
 
-      <div className='random_btns'>
         <button onClick={randomPkmn}>Random Pokemon</button>
-        <button onClick={randomSearch}>Random Search</button>
-      </div>
 
 
       {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
@@ -109,6 +111,16 @@ const Home = () => {
       <p>
         Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.
       </p>
+
+      <div>
+        <button onClick={triggerTest1}>{`navigate('test')`}</button>
+        <Link to={'test'}>
+          <h3>go to test1</h3>
+        </Link>
+        <Link to={'/pokedex/test'}>
+          <h3>go to test4</h3>
+        </Link>
+      </div>
 
     </div>
   )

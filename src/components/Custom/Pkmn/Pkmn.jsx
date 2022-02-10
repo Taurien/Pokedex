@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Pkmn = ({ data }) => {
+import './Pkmn.styles.scss'
 
-    console.log(data)
+const Pkmn = ({ data }) => {
 
     const {
     abilities,
@@ -35,29 +35,75 @@ const Pkmn = ({ data }) => {
     }
 
     const displayStats = () => {
-        return stats.map(el => 
-            <div key={el.stat.name}>
-                <p>{el.stat.name}</p>
-                <p>{el.base_stat}</p>
+        return stats.map(el => { 
+            const percent = (el.base_stat * 100) / 255
+
+            return (
+            <div className='pk_stats' key={el.stat.name}>
+                <span>
+                    <p>{el.stat.name}</p>
+                    <p>{el.base_stat}</p>
+                </span>
+                <div className='bar'>
+                    <div className='value_bar' style={{ width: `${percent}%` }}></div>
+                </div>
             </div>
-        )
+            )
+        })
     }
 
-    const displayTypes = () => {
-        return types.map(el => 
+    const gameIndexs = () => (
+        game_indices.map((el, index) =>
+            <p key={index}>#{el.game_index} in {el.version.name}</p>
+        )
+    )
+
+    const displayTypes = () => (
+        types.map(el => 
             <p key={el.type.name}>{el.type.name}</p>
         )
-    }
+    )
 
     return (
-        <div>
-            <img src={img} alt={name} />
-            <p>{id}</p>
-            <div>
+        <div className='pkmn'>
+
+            <div className='pk_uid'>
+                <h1>{name}</h1>
+                <h2># {id}</h2>
+            </div>
+
+            <div className='pk_img'>
+                <img src={img} alt={name} />
+            </div>
+
+            <div className='pk_types'>
+                { displayTypes() }
+            </div>
+
+            <div className='pk_WnH'>
+                <p>Height</p>
+                <p>Weight</p>
+                <p>{height}</p>
+                <p>{weight}</p>
+            </div>
+
+            <span>Base EXP: {base_experience}</span>
+
+            <div className='pk_abilities'>
                 { displayAbilities() }
             </div>
+
+            {/* <div className='pk_stats'> */}
                 { displayStats() }
-                { displayTypes() }
+            {/* </div> */}
+
+            
+
+            {/* dropdown? */}
+            <div className='pk_indices'>
+                { gameIndexs() }
+            </div>
+
         </div>
     )
 }

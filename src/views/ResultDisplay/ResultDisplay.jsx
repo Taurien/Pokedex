@@ -12,22 +12,22 @@ const PkmnDisplay = () => {
 
     const { requested, formKeys, info } = useContext(InfoContext)
 
-    if (requested.endpoint === 'pokemon') console.log('hiii')
+    const isPkmn = requested.endpoint === 'pokemon'
 
     return (
         <div className='info_view'>
-            <h1>holi</h1>
-            <p>showing results for: {`${info.name}`}</p>
+            {/* <p>showing results for: {`${info.name}`}</p> */}
+            <p>showing results for:</p>
 
             {
-                // formKeys.requested.endpoint === 'pokemon' ?
-                // <Pkmn data={info} /> :
-                // <Result data={info} />
-
+                isPkmn &&
+                    <Pkmn
+                        data={info}
+                    />
             }
 
 
-            <Link to={'/'}>Back</Link>
+            <Link to={'/pokedex'}>Back</Link>
 
 
         </div>
