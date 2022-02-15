@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
 
+    margin: 3px 0;
+
     // position: relative;
 
     .label_c {
@@ -13,7 +15,8 @@
         text-align: center; 
         
         label {
-            border: 1px solid rgba(#ffb2b2,.15);
+            border: 1px solid rgba(#ffb2b2,.9);
+            // border: 1px solid rgba(#ffb2b2,.15);
         	// display: block;
 
             display: flex;
@@ -22,9 +25,9 @@
             align-items: center;
             justify-content: center;
 
-        	height: 100%;
-        	width: 100%;
-        	padding: 10px 10px;
+        	height: 75px;
+        	width: 75px;
+        	// padding: 10px 10px;
         	cursor: pointer;
         	opacity: .6;
         	transition: all .5s ease-in-out;
@@ -53,20 +56,6 @@
               opacity: 1;
               border: 1px solid #ffb2b2;
             }
-        }
-    }
-
-    select {
-        // position: absolute;
-        z-index: 2;
-
-        border: 1px solid red;
-
-        // top: calc(100% - 100px);;
-        // left: calc(100% - 818px);
-
-        option {
-
         }
     }
 }

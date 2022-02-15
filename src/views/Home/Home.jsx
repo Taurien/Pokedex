@@ -88,7 +88,7 @@ const Home = () => {
 
       <Form triggerFetch={triggerFetch} />
 
-        <button onClick={randomPkmn}>Random Pokemon</button>
+      <button onClick={randomPkmn}>Random Pokemon</button>
 
 
       {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
@@ -97,7 +97,7 @@ const Home = () => {
       { isloading && <Loader/> }
 
       {
-        info? 
+        info &&
           <div className='prev_result'>
             <p>{info.id}</p>
             <p>{info.name}</p>
@@ -105,14 +105,13 @@ const Home = () => {
               <button>See more abt this</button>
             </Link> 
           </div>
-        : <p>what are u looking for</p>
       }
 
-      <p>
+      <span className='bulbapedia'>
         Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.
-      </p>
+      </span>
 
-      <div>
+      {/* <div>
         <button onClick={triggerTest1}>{`navigate('test')`}</button>
         <Link to={'test'}>
           <h3>go to test1</h3>
@@ -120,7 +119,7 @@ const Home = () => {
         <Link to={'/pokedex/test'}>
           <h3>go to test4</h3>
         </Link>
-      </div>
+      </div> */}
 
     </div>
   )

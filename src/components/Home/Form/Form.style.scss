@@ -2,25 +2,26 @@ form {
     display: flex;
     flex-direction: column;
 
+    align-items: center;
     border: 1px solid black;
     padding: 15px;
 
+    max-width: 80%;
+
     .all_options {
-        display: flex;
-        flex-direction: row;
-        // border: 1px solid red;
         margin: 10px;
-
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        
+        // border: 1px solid fuchsia;
     }
 
-    .select_ {
-        align-self: center;
-
-        margin: 10px 0;
-    }
+    
 
     .search_bar {
-        align-self: center;
+        // align-self: center;
         border: 1px solid black;
         border-radius: 16px;
         overflow: hidden;

@@ -17,7 +17,9 @@ const Form = ({ triggerFetch }) => {
 
     // data and functions from contexts
     const { formKeys, setRequested } = useContext(InfoContext)
-    const { register, unregister, handleSubmit, formState: { errors } } = useFormContext();
+    const { watch, register, unregister, handleSubmit, formState: { errors } } = useFormContext();
+
+    const [ selected, setSelected ] = useState(false)
 
     // onSubmit form function
     const onSubmit = data => {
@@ -49,7 +51,9 @@ const Form = ({ triggerFetch }) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} onChange={cleanForm}>
 
-            <div className='all_options'>
+            <p>what are u looking for</p>
+
+            <div className='all_options' onChange={() => setSelected(false)}>
                 <Options
                     labelTxt={'Berry'}
                     svg={'🍒'}
@@ -112,88 +116,91 @@ const Form = ({ triggerFetch }) => {
 
             </div>
 
-            <div className='select_'>
-                    <Select
-                    values={
-                        {
-                            berriesOptions: {
-                            'berry': 'all the berries',
-                            'berry-firmness': 'by its firmness',
-                            'berry-flavor': 'by its flavor'
-                        },
-                        contestsOptions: {
-                            'contest-type': 'by its type',
-                            'contest-effect': 'by its effect', // ID
-                            'super-contest-effect': 'by its contest effect', // ID}
-                        },
-                        encountersOptions: {
-                            'encounter-method': 'by its method', //VERIFY
-                            'encounter-condition': 'by its condition',
-                            'encounter-condition-value': 'by its condition value'
-                        },
-                        evolutionsOptions: {
-                            'evolution-chain': 'by its evol-chain', //ID
-                            'evolution-trigger': 'by triggers'
-                        },
-                        gamesOptions: {
-                            'generation': 'by generation',
-                            'pokedex': 'by dex',
-                            'version': 'by version',
-                            'version-group': 'by version group'
-                        },
-                        itemsOptions: {
-                            'item': 'all the items',
-                            'item-attribute': 'by its attribute',
-                            'item-category': 'by its category',
-                            'item-fling-effect': 'by its fling-effect',
-                            'item-pocket': 'by pocket'
-                        },
-                        locationsOptions: {
-                            'location': 'all locations',
-                            'location-area': 'by location area',
-                            'pal-park-area': 'by pal park area'
-                        },
-                        machinesOptions: {
-                            'machine': 'machine' //ID
-                        },
-                        movesOptions: {
-                            'move': 'all',
-                            'move-ailment': 'by ailment',
-                            'move-battle-style': 'by battlestyle',
-                            'move-category': 'by category',
-                            'move-damage-class': 'by DMG class',
-                            'move-learn-method': 'by learn method',
-                            'move-target': 'by target'
-                        },
-                        pokemonsOptions: {
-                            'ability': 'by ability',
-                            'characteristic': 'by characteristic', //ID
-                            'egg-group': 'by egg-group',
-                            'gender': 'by gender',
-                            'growth-rate': 'by growth rate',
-                            'nature': 'by nature',
-                            'pokeathlon-stat': 'by pokeathlon-stat',
-                            'pokemon': 'by PKMN',
-                            'pokemon/{id or name}/encounters': 'by location area', // CHECK ENDPOINT
-                            'pokemon-color': 'by pkmn color',
-                            'pokemon-form': 'by pkmn form',
-                            'pokemon-habitat': 'by pkmn habitat',
-                            'pokemon-shape': 'by pkmn shape',
-                            'pokemon-species': 'by pkmn species',
-                            'stat': 'by stat',
-                            'type': 'by type'
-                        }
-                        }
+            <Select
+                setSelected={setSelected}
+                values={
+                    {
+                        berriesOptions: {
+                        'berry': 'all the berries',
+                        'berry-firmness': 'by its firmness',
+                        'berry-flavor': 'by its flavor'
+                    },
+                    contestsOptions: {
+                        'contest-type': 'by its type',
+                        'contest-effect': 'by its effect', // ID
+                        'super-contest-effect': 'by its contest effect', // ID}
+                    },
+                    encountersOptions: {
+                        'encounter-method': 'by its method', //VERIFY
+                        'encounter-condition': 'by its condition',
+                        'encounter-condition-value': 'by its condition value'
+                    },
+                    evolutionsOptions: {
+                        'evolution-chain': 'by its evol-chain', //ID
+                        'evolution-trigger': 'by triggers'
+                    },
+                    gamesOptions: {
+                        'generation': 'by generation',
+                        'pokedex': 'by dex',
+                        'version': 'by version',
+                        'version-group': 'by version group'
+                    },
+                    itemsOptions: {
+                        'item': 'all the items',
+                        'item-attribute': 'by its attribute',
+                        'item-category': 'by its category',
+                        'item-fling-effect': 'by its fling-effect',
+                        'item-pocket': 'by pocket'
+                    },
+                    locationsOptions: {
+                        'location': 'all locations',
+                        'location-area': 'by location area',
+                        'pal-park-area': 'by pal park area'
+                    },
+                    machinesOptions: {
+                        'machine': 'machine' //ID
+                    },
+                    movesOptions: {
+                        'move': 'all',
+                        'move-ailment': 'by ailment',
+                        'move-battle-style': 'by battlestyle',
+                        'move-category': 'by category',
+                        'move-damage-class': 'by DMG class',
+                        'move-learn-method': 'by learn method',
+                        'move-target': 'by target'
+                    },
+                    pokemonsOptions: {
+                        'ability': 'by ability',
+                        'characteristic': 'by characteristic', //ID
+                        'egg-group': 'by egg-group',
+                        'gender': 'by gender',
+                        'growth-rate': 'by growth rate',
+                        'nature': 'by nature',
+                        'pokeathlon-stat': 'by pokeathlon-stat',
+                        'pokemon': 'by PKMN',
+                        'pokemon/{id or name}/encounters': 'by location area', // CHECK ENDPOINT
+                        'pokemon-color': 'by pkmn color',
+                        'pokemon-form': 'by pkmn form',
+                        'pokemon-habitat': 'by pkmn habitat',
+                        'pokemon-shape': 'by pkmn shape',
+                        'pokemon-species': 'by pkmn species',
+                        'stat': 'by stat',
+                        'type': 'by type'
                     }
-                    />
-            </div>
+                    }
+                }
+            />
 
+            {
+                selected &&
+                <div className='search_bar'>
+                    {errors['id-OR-name'] && <span>LOLx</span>}
+                    <input placeholder='type its id or name' {...register("id-OR-name", { required: true })} />
+                    <input type="submit" />
+                    {/* border radius back to normal */}
+                </div>
+            }
 
-                {errors['id-OR-name'] && <span>LOLx</span>}
-            <div className='search_bar'>
-                <input placeholder='type its id or name' {...register("id-OR-name", { required: true })} />
-                <input type="submit" />
-            </div>
 
         </form>
             

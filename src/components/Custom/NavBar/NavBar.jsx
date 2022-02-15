@@ -6,15 +6,15 @@ import './NavBar.styles.scss'
 const NavBar = () => {
   return (
     <div className='navbar'>
-        <h1>im a navbar</h1>
-        <div>
+        <h1>Poke-finder</h1>
+        <nav>
             <Link to={'/pokedex'}>
                 Home
             </Link>
             <Link to={'pokedex/test'}>
                 Test2
             </Link>
-        </div>
+        </nav>
         
     </div>
   )
