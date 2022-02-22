@@ -1,10 +1,8 @@
 import { useContext } from 'react'
 import { useFormContext } from "react-hook-form";
-import InfoContext from '../../../context/InfoContext'
+import InfoContext from '../../../../context/InfoContext'
 
-import './Select.styles.scss'
-
-const Select = ({ values, setSelected }) => {
+const Select = ({ values, setSearchB }) => {
 
     const { formKeys } = useContext(InfoContext)
     const { register, formState: { errors } } = useFormContext()
@@ -15,7 +13,7 @@ const Select = ({ values, setSelected }) => {
     const error = errors[key]
 
     const setSearchBar = e => {
-      setSelected(true)
+      setSearchB(true)
     }
 
     if (options) {
@@ -24,15 +22,15 @@ const Select = ({ values, setSelected }) => {
       )
 
       return (
-        <div className='div_select' onChange={setSearchBar} >
+        <>
           {error && <span>LOLy</span>}
-          <select { ...register(key, { required: true, shouldUnregister: true, }) } >
+          <select className='c-select' { ...register(key, { required: true, shouldUnregister: true, }) } >
               <option value=''>Select...</option>
 
               { renderOptions }
 
           </select>
-        </div>
+        </>
       )
     }
 

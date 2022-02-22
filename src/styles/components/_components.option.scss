@@ -1,4 +1,4 @@
-.option_container {
+.c-option {
     display: flex;
     flex-direction: column;
 
@@ -6,7 +6,7 @@
 
     // position: relative;
 
-    .label_c {
+    &__label {
         display: inline-block;
         // width: ;
         // height: ;

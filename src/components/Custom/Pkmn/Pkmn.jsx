@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './Pkmn.styles.scss'
-
 const Pkmn = ({ data }) => {
 
     const {
@@ -39,7 +37,7 @@ const Pkmn = ({ data }) => {
             const percent = (el.base_stat * 100) / 255
 
             return (
-            <div className='pk_stats' key={el.stat.name}>
+            <div className='c-pkmn__stats' key={el.stat.name}>
                 <span>
                     <p>{el.stat.name}</p>
                     <p>{el.base_stat}</p>
@@ -65,22 +63,22 @@ const Pkmn = ({ data }) => {
     )
 
     return (
-        <div className='pkmn'>
+        <div className='c-pkmn'>
 
-            <div className='pk_uid'>
+            <div className='c-pkmn__uid'>
                 <h1>{name}</h1>
                 <h2># {id}</h2>
             </div>
 
-            <div className='pk_img'>
+            <div className='c-pkmn__img'>
                 <img src={img} alt={name} />
             </div>
 
-            <div className='pk_types'>
+            <div className='c-pkmn__types'>
                 { displayTypes() }
             </div>
 
-            <div className='pk_WnH'>
+            <div className='c-pkmn__WnH'>
                 <p>Height</p>
                 <p>Weight</p>
                 <p>{height}</p>
@@ -89,7 +87,7 @@ const Pkmn = ({ data }) => {
 
             <span>Base EXP: {base_experience}</span>
 
-            <div className='pk_abilities'>
+            <div className='c-pkmn__abilities'>
                 { displayAbilities() }
             </div>
 
@@ -100,7 +98,7 @@ const Pkmn = ({ data }) => {
             
 
             {/* dropdown? */}
-            <div className='pk_indices'>
+            <div className='c-pkmn__indices'>
                 { gameIndexs() }
             </div>
 

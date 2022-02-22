@@ -1,7 +1,5 @@
 import { useContext } from 'react'
-import InfoContext from '../../../context/InfoContext'
-
-import './Options.style.scss'
+import InfoContext from '../../../../context/InfoContext'
 
 const Options = ({ labelTxt, svg, options }) => {
 
@@ -17,8 +15,8 @@ const Options = ({ labelTxt, svg, options }) => {
   }
   
   return (
-    <div className={`option_container ${reg}_container`} onChange={triggerOpt} >
-      <div className='label_c'>
+    <div className={`c-option ${reg}_option`} onChange={triggerOpt} >
+      <div className='c-option__label'>
 
         <input  type="radio" value={options} name='label' id={reg} />
 

@@ -1,0 +1,27 @@
+///* ========================================================================
+//   #Global
+//   ======================================================================== */
+
+// Project-level settings and setup.
+
+// Base typographical styles and baseline grid.
+$global-font-size:    14px !default;
+$global-line-height:  20px !default;
+
+// Standardise some UI treatments.
+$global-radius:       3px !default;
+$global-transition:   0.333333333s !default;
+
+// Baseline grid lines height.
+// Every spacing metric should be based on this.
+
+$global-baseline:     6px !default;
+
+
+
+$global-spacing-unit:            $global-line-height;
+$global-spacing-unit-tiny:  calc($global-spacing-unit / 4);
+$global-spacing-unit-small: calc($global-spacing-unit / 2);
+$global-spacing-unit-large: calc($global-spacing-unit * 2);
+$global-spacing-unit-huge:  calc($global-spacing-unit * 4);
+

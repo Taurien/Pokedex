@@ -1,0 +1,11 @@
+.c-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 5px 10px;
+    color: white;
+    background-color: black;
+    
+    &:hover {
+        cursor: pointer;
+    }
+}

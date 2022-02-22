@@ -10,8 +10,6 @@ import Form from '../../components/Home/Form/Form'
 import Loader from '../../components/Custom/Loader/Loader'
 import Pkmn from '../../components/Custom/Pkmn/Pkmn'
 
-// styles
-import './Home.style.scss'
 
 const Home = () => {
 
@@ -83,12 +81,12 @@ const Home = () => {
 
   return (
 
-    <div className='home_view'>
+    <div className='o-view o-view-home'>
       <h1>PokeSearch🔍</h1>
 
       <Form triggerFetch={triggerFetch} />
 
-      <button onClick={randomPkmn}>Random Pokemon</button>
+      <button className='c-btn' onClick={randomPkmn}>Random Pokemon</button>
 
 
       {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
@@ -98,7 +96,7 @@ const Home = () => {
 
       {
         info &&
-          <div className='prev_result'>
+          <div className='c-preview'>
             <p>{info.id}</p>
             <p>{info.name}</p>
             <Link to={`pokeinfo/${info.name}`}>
@@ -107,9 +105,9 @@ const Home = () => {
           </div>
       }
 
-      <span className='bulbapedia'>
+      {/* <span className='bulbapedia'>
         Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.
-      </span>
+      </span> */}
 
       {/* <div>
         <button onClick={triggerTest1}>{`navigate('test')`}</button>

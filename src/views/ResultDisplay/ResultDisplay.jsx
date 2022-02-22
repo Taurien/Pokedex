@@ -6,8 +6,6 @@ import InfoContext from '../../context/InfoContext'
 import Pkmn from '../../components/Custom/Pkmn/Pkmn'
 import Result from '../../components/ResultDisplay/Result'
 
-import './ResultDisplay.style.scss'
-
 const PkmnDisplay = () => {
 
     const { requested, formKeys, info } = useContext(InfoContext)
@@ -15,7 +13,7 @@ const PkmnDisplay = () => {
     const isPkmn = requested.endpoint === 'pokemon'
 
     return (
-        <div className='info_view'>
+        <div className='c-view c-view-ifno'>
             {/* <p>showing results for: {`${info.name}`}</p> */}
             <p>showing results for:</p>
 

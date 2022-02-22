@@ -1,0 +1,30 @@
+@import 'settings/all';
+
+@import 'tools/all';
+
+@import 'generic/generic.box-sizing';
+@import 'generic/generic.normalize';
+@import 'generic/generic.reset';
+@import 'generic/generic.shared';
+
+@import 'elements/elements.page';
+@import 'elements/elements.headings';
+@import 'elements/elements.images';
+
+@import 'objects/objects.view';
+
+@import 'components/components.page';
+@import 'components/components.navbar';
+@import 'components/components.button';
+@import 'components/components.preview';
+@import 'components/components.form';
+@import 'components/components.option';
+@import 'components/components.select';
+@import 'components/components.pkmn';
+
+
+// @import './utilities/';
+
+* {
+    // border: 1px solid rgb(212, 0, 255);
+}
