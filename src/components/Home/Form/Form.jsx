@@ -22,15 +22,17 @@ const Form = ({ triggerFetch, setRandom }) => {
 
     // onSubmit form function
     const onSubmit = data => {
-        // console.log(data)
+        console.log(data)
         const { id_OR_name, ...res } = data
         const req = Object.values(res)[0]
 
+        const id_OR_name_lowered = id_OR_name.toLowerCase()
+
         setRequested({
             endpoint: req,
-            id_OR_name: id_OR_name,
+            id_OR_name: id_OR_name_lowered,
         })
-        triggerFetch(req, id_OR_name)
+        triggerFetch(req, id_OR_name_lowered)
     }
 
     const cleanForm = (e) => {
