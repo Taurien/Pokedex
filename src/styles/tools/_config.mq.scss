@@ -21,11 +21,11 @@ $breakpoint-pc: 768px;
 //$breakpoint-xxl: 1600px;
 
 @mixin media($media) {
-  @if $media==mobile {
+  @if $media == mobile {
     @media (max-width: $breakpoint-mobile) {
       @content;
     }
-  } @else if $media==pc {
+  } @else if $media == pc {
     @media (min-width: $breakpoint-pc) {
       @content;
     }

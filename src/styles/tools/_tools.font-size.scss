@@ -64,7 +64,7 @@
     }
 
     @else if ($line-height != 'none' and $line-height != false) {
-      @error "D’oh! `#{$line-height}` is not a valid value for `$line-height`."
+      @error "D'oh! `#{$line-height}` is not a valid value for `$line-height`."
     }
 
   }

@@ -4,15 +4,20 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div className='c-navbar'>
-        <h1>Poke-finder</h1>
-        <nav>
-            <Link to={'/pokedex'}>
-                Home
-            </Link>
-            <Link to={'pokedex/test'}>
-                Test2
-            </Link>
-        </nav>
+
+      <div className='c-navbar__logo'>
+        <img src="#" alt="" />
+        <span>Poke-finder</span>
+      </div>
+
+      <nav className='c-navbar__nav'>
+          <Link to={'/pokedex'}>
+              Home
+          </Link>
+          <Link to={'pokedex/test'}>
+              Test2
+          </Link>
+      </nav>
         
     </div>
   )

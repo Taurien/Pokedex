@@ -21,18 +21,19 @@ const Home = () => {
   // data and function from custom fetch
   const { triggerFetch, fetchedData, isloading, error } = useFetch()
 
-    
+  const [ random, setRandom ] = useState(true)
+  const [ preview, setPreview] = useState(false)
 
   
-    const randomPkmn = e => {
-      e.preventDefault()
-      const random = Math.ceil(Math.random() * 898) + 1
-      setRequested({
-          endpoint: 'pokemon',
-          id_OR_name: random
-      })
-      triggerFetch('pokemon', random)
-    }
+  const randomPkmn = e => {
+    e.preventDefault()
+    const random = Math.ceil(Math.random() * 898) + 1
+    setRequested({
+        endpoint: 'pokemon',
+        id_OR_name: random
+    })
+    triggerFetch('pokemon', random)
+  }
 
     // const randomSearch = e => {
     //   e.preventDefault()
@@ -47,15 +48,16 @@ const Home = () => {
     //   triggerFetch(endpoints[randomEND], random)
     // }
 
-    useEffect(() => {
+  useEffect(() => {
 
-      const dataToContext = () => {
-        setInfo(fetchedData)
-        // console.log(formKeys.requested.endpoint)
-      }
-  
-      dataToContext()
-    }, [fetchedData, setInfo])
+    const dataToContext = () => {
+      setInfo(fetchedData)
+      setPreview(true)
+      // console.log(formKeys.requested.endpoint)
+    }
+
+    dataToContext()
+  }, [fetchedData, setInfo])
 
     // const shiftPkmn = (value) => {
     //   if (value === 'next') {
@@ -74,34 +76,47 @@ const Home = () => {
     //   }
     // }
 
-    const triggerTest1 = () => {
-      navigate('test')
-      console.log('soy 1 T')
-    }
+  const triggerTest1 = () => {
+    navigate('test')
+    console.log('soy 1 T')
+  }
+
+  const hidePrev = () => {
+    setPreview(false)
+  }
 
   return (
 
     <div className='o-view o-view-home'>
       <h1>PokeSearch🔍</h1>
 
-      <Form triggerFetch={triggerFetch} />
+      <Form setRandom={setRandom} triggerFetch={triggerFetch} />
 
-      <button className='c-btn' onClick={randomPkmn}>Random Pokemon</button>
+      {
+        random &&
+          <button className='c-btn' onClick={randomPkmn}>Random Pokemon</button>
+      }
 
 
       {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
       {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
 
-      { isloading && <Loader/> }
+      { isloading &&
+          <div className='c-preview' onClick={hidePrev}>
+            <Loader/>
+          </div>
+      }
 
       {
-        info &&
-          <div className='c-preview'>
-            <p>{info.id}</p>
-            <p>{info.name}</p>
-            <Link to={`pokeinfo/${info.name}`}>
-              <button>See more abt this</button>
-            </Link> 
+        info && preview &&
+          <div className='c-preview' onClick={hidePrev}>
+            <div className='c-preview__modal'>
+              <p>{info.id}</p>
+              <p>{info.name}</p>
+              <Link to={`pokeinfo/${info.name}`}>
+                <button>See more abt this</button>
+              </Link>
+            </div>
           </div>
       }
 

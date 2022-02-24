@@ -1,17 +1,45 @@
 .c-navbar {
-
-    h1 {
-        margin: 0;
-    }
-
     width: 100%;
     color: white;
     background-color: black;
+    padding: 10px;
+    
     display: inline-flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    nav {
-
+    @include media(pc) {
     }
+    
+    
+    &__logo, &__nav {
+        display: inherit;
+        align-items: inherit;
+    }
+}
+
+.c-navbar__logo {
+
+    span {
+
+        font-weight: bold;
+        
+        @include font-size(25px);
+
+        @include media(pc) {
+            
+        }
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+
+        @include media(pc) {
+
+        }
+    }
+}
+
+.c-navbar__nav {
 }

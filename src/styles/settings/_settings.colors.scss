@@ -5,14 +5,35 @@
 // Set up a colour palette which allows us to theme the entire project from one
 // location.
 
-// Colour palette.
-$color-brand-primary:               #378bb5 !default;
-$color-brand-primary-highlight:     lighten($color-brand-primary, 5%) !default;
-$color-brand-primary-shadow:        darken($color-brand-primary,  5%) !default;
+//Pkmn types
 
-$color-brand-secondary:             #abc123 !default;
-$color-brand-secondary-highlight:   lighten($color-brand-secondary, 5%) !default;
-$color-brand-secondary-shadow:      darken($color-brand-secondary,  5%) !default;
+$bug: #a8b820;
+$dark: #705848;
+$dragon: #7038f8;
+$electric: #f8d030;
+$fairy: #ee99ac;
+$fighting: #c03028;
+$fire: #f08030;
+$flying: #a890f0;
+$ghost: #705898;
+$grass: #78c850;
+$ground: #e0c068;
+$ice: #98d8d8;
+$normal: #a8a878;
+$poison: #a040a0;
+$psychic: #f85888;
+$rock: #b8a038;
+$steel: #b8b8d0;
+$water: #6890f0;
+
+// Colour palette.
+$color-primary:               #378bb5 !default;
+$color-primary-highlight:     lighten($color-primary, 5%) !default;
+$color-primary-shadow:        darken($color-primary,  5%) !default;
+
+$color-secondary:             #abc123 !default;
+$color-secondary-highlight:   lighten($color-secondary, 5%) !default;
+$color-secondary-shadow:      darken($color-secondary,  5%) !default;
 
 $color-ui:                          #e4e4e4 !default;
 
@@ -23,36 +44,27 @@ $color-white:                       #fff !default;
 
 
 
-
-
-// Theme colors.
-$color-theme-red:                   #c00;
-
-
-
-
-
 // Reassign literal variables to meaningful ones.
 $color-page-text:                       $color-grey-dark;
 $color-page-background:                 #f3f3f3;
 
-$color-logo:                            $color-brand-primary;
+$color-logo:                            $color-primary;
 
 $color-links:                           inherit;
-$color-links-prose:                     $color-brand-primary;
-$color-links-prose-hover:               $color-brand-primary-shadow;
+$color-links-prose:                     $color-primary;
+$color-links-prose-hover:               $color-primary-shadow;
 
 $color-page-head:                       #fff;
-$color-page-head-background:            $color-brand-primary;
+$color-page-head-background:            $color-primary;
 
-$color-masthead-background:             $color-brand-primary;
+$color-masthead-background:             $color-primary;
 
 $color-btn:                             #fff;
-$color-btn-background:                  $color-brand-primary;
-$color-btn-background-hover:            $color-brand-primary-shadow;
+$color-btn-background:                  $color-primary;
+$color-btn-background-hover:            $color-primary-shadow;
 $color-btn-secondary:                   #fff;
-$color-btn-secondary-background:        $color-brand-secondary;
-$color-btn-secondary-background-hover:  $color-brand-secondary-shadow;
+$color-btn-secondary-background:        $color-secondary;
+$color-btn-secondary-background-hover:  $color-secondary-shadow;
 
 $color-page-foot:                       #fff;
 $color-page-foot-background:            $color-grey-dark;;

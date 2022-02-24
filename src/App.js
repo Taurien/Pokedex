@@ -19,7 +19,7 @@ function App() {
     <InfoContextProvider>
 
       <MainLayout>
-
+        
         <Routes>
           <Route path="/pokedex">
             <Route index element={<Home />} />
@@ -27,9 +27,8 @@ function App() {
             <Route path="pokeinfo/:result" element={<ResultDisplay />} />
           </Route>
         </Routes>
-        
+
       </MainLayout>
-      
 
     </InfoContextProvider>
     </FormProvider>

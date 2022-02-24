@@ -1,71 +1,77 @@
 .c-form {
-    padding: 15px;
+    padding: 10px;
     max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     border: 1px solid black;
+    border-radius: 8px;
+
+    &__all_options,
+    &__select,
+    &__search_bar {
+        margin: 8px 0;
+    }
 
     &__all_options {
-        margin: 10px;
-        
-        display: flex;
+        display: inherit;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        
-        // border: 1px solid fuchsia;
     }
 
     &__select {
-        align-self: center;
-        margin: 10px 0;
-        width: 200px;
-        height: 30px;
-
-        border-radius: 4px;
-        overflow: hidden;
-
-        border: 1px solid fuchsia;
     }
 
     &__search_bar {
-        // align-self: center;
-        border: 1px solid black;
-        border-radius: 16px;
-        overflow: hidden;
-
-        // width: 68%;
-        // margin: 6rem 0;
         display: grid;
         grid-template-columns: 3fr 1fr;
+    }
+}
 
-        // background: #da0505;
-        // box-shadow: inset 6px 6px 12px #bebebe,
-        //             inset -6px -6px 12px #ffffff;
+.c-form__all_options {
+
+}
+
+.c-form__select {
+    overflow: hidden;
+
+    width: 200px;
+    height: 30px;
+
+    border-radius: 4px;
+
+    border: 1px solid fuchsia;
+}
+
+.c-form__search_bar {
+    // align-self: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    overflow: hidden;
+
+    // width: 68%;
+    
+    input {
+        border: none;
+        // outline: none;
+        padding: 5px 0;
+
         
-        input {
-            border: none;
-            // outline: none;
-            padding: 5px 0;
+        &:first-child {
+            padding: 0px 8px;
+            background-color: transparent;
 
-            
-            &:first-child {
-                padding: 0px 8px;
-                background-color: transparent;
-
-            }
-            &:last-child {
-                // width: 100%;
-                // height: 100%;
-                color: white;
-                background-color: $color-brand-secondary;
-            }
-            
-            &:last-child:hover {
-                cursor: pointer;
-            }
+        }
+        &:last-child {
+            // width: 100%;
+            // height: 100%;
+            color: white;
+            background-color: $color-secondary;
+        }
+        
+        &:last-child:hover {
+            cursor: pointer;
         }
     }
 }
-  

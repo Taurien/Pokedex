@@ -9,7 +9,7 @@ import Options from './Option/Option'
 import Select from './Select/Select';
 
 
-const Form = ({ triggerFetch }) => {
+const Form = ({ triggerFetch, setRandom }) => {
 
     const [ pastValue, setPastValue ] = useState('')
 
@@ -23,16 +23,14 @@ const Form = ({ triggerFetch }) => {
     // onSubmit form function
     const onSubmit = data => {
         // console.log(data)
-        // data is an object ... extract the keys 
-        const keys = Object.keys(data)
-        const key1 = keys[0]
-        const key2 = keys[1]
+        const { id_OR_name, ...res } = data
+        const req = Object.values(res)[0]
 
         setRequested({
-            endpoint: data[key2],
-            id_OR_name: data[key1],
+            endpoint: req,
+            id_OR_name: id_OR_name,
         })
-        triggerFetch(data[key2], data[key1])
+        triggerFetch(req, id_OR_name)
     }
 
     const cleanForm = (e) => {
@@ -53,9 +51,13 @@ const Form = ({ triggerFetch }) => {
     }
 
     return (
-        <form className='c-form' onSubmit={handleSubmit(onSubmit)} onChange={cleanForm}>
+        <form className='c-form'
+            onSubmit={handleSubmit(onSubmit)}
+            onChange={cleanForm}
+            // onClick={() => setRandom(false)}
+        >
 
-            <p>what are u looking for</p>
+            <span>what are u looking for</span>
 
             <div className='c-form__all_options' onClick={() => setSelect(true)} onChange={() => setSearchB(false)}>
                 <Options
@@ -205,7 +207,7 @@ const Form = ({ triggerFetch }) => {
                 searchB &&
                 <div className='c-form__search_bar'>
                     {errors['id-OR-name'] && <span>LOLx</span>}
-                    <input placeholder='type its id or name' {...register("id-OR-name", { required: true })} />
+                    <input placeholder='type its id or name' {...register("id_OR_name", { required: true })} />
                     <input type="submit" />
                     {/* border radius back to normal */}
                 </div>
