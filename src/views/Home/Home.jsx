@@ -8,6 +8,7 @@ import { useFetch } from '../../hooks/useFetch';
 // components
 import Form from '../../components/Home/Form/Form'
 import Loader from '../../components/Custom/Loader/Loader'
+import Preview from '../../components/Home/Preview/Preview';
 import Pkmn from '../../components/Custom/Pkmn/Pkmn'
 
 
@@ -35,25 +36,10 @@ const Home = () => {
     triggerFetch('pokemon', random)
   }
 
-    // const randomSearch = e => {
-    //   e.preventDefault()
-    //   const randomEND = Math.ceil(Math.random() * 46) + 1
-    //   const random = Math.ceil(Math.random() * 898) + 1
-    //   handleFormKeys({
-    //     requested: {
-    //       //  TODO endpoint: 'pokemon',
-    //       id_OR_name: random
-    //     }
-    //   })
-    //   triggerFetch(endpoints[randomEND], random)
-    // }
-
   useEffect(() => {
-
     const dataToContext = () => {
       setInfo(fetchedData)
       setPreview(true)
-      // console.log(formKeys.requested.endpoint)
     }
 
     dataToContext()
@@ -81,10 +67,6 @@ const Home = () => {
     console.log('soy 1 T')
   }
 
-  const hidePrev = () => {
-    setPreview(false)
-  }
-
   return (
 
     <div className='o-view o-view-home'>
@@ -94,7 +76,9 @@ const Home = () => {
 
       {
         random &&
-          <button className='c-btn' onClick={randomPkmn}>Random Pokemon</button>
+          <>
+            <button className='c-btn' onClick={randomPkmn}>Random Pokemon</button>
+          </>
       }
 
 
@@ -102,22 +86,18 @@ const Home = () => {
       {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
 
       { isloading &&
-          <div className='c-preview' onClick={hidePrev}>
+          <div className='c-preview'>
             <Loader/>
           </div>
       }
 
       {
         info && preview &&
-          <div className='c-preview' onClick={hidePrev}>
-            <div className='c-preview__modal'>
-              <p>{info.id}</p>
-              <p>{info.name}</p>
-              <Link to={`pokeinfo/${info.name}`}>
-                <button>See more abt this</button>
-              </Link>
-            </div>
-          </div>
+        <div className='c-preview' onClick={() => setPreview(!preview)}>
+          <Preview
+            data={info}
+          />
+        </div>
       }
 
       {/* <span className='bulbapedia'>

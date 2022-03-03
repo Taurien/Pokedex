@@ -12,6 +12,8 @@
 @import 'elements/elements.images';
 
 @import 'objects/objects.view';
+@import 'objects/objects.dropdown';
+@import 'objects/objects.unit';
 
 @import 'components/components.page';
 @import 'components/components.navbar';
@@ -22,6 +24,7 @@
 @import 'components/components.option';
 @import 'components/components.select';
 @import 'components/components.pkmn';
+@import 'components/components.item';
 
 
 // @import './utilities/';

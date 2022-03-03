@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useFormContext } from "react-hook-form";
 import InfoContext from '../../../../context/InfoContext'
 
-const Select = ({ values, setSearchB }) => {
+const Select = ({ values }) => {
 
     const { formKeys } = useContext(InfoContext)
     const { register, formState: { errors } } = useFormContext()
@@ -11,10 +11,6 @@ const Select = ({ values, setSearchB }) => {
     const options = values[key]
 
     const error = errors[key]
-
-    const setSearchBar = e => {
-      setSearchB(true)
-    }
 
     if (options) {
       const renderOptions = Object.keys(options).map(key => 

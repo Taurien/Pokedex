@@ -2,6 +2,8 @@ import React from 'react'
 
 const Result = ({ data }) => {
 
+    const { id } = data
+
     const render = () => {
 
         const filter = Object.keys(data).map(el => {
@@ -33,9 +35,24 @@ const Result = ({ data }) => {
     }
 
   return (
-    <div>
-        <p>{data.id}</p>
+    <div className='o-unit c-result'>
+
+         <div className='o-unit__uid c-result__uid'>
+            {
+                data.name ?
+                <>
+                    <h1>{data.name}</h1>
+                    <h2>#{id}</h2>
+                </>
+                :
+                <>
+                    <h2>#{id}</h2>
+                </>
+            }
+        </div>
+
         {render()}
+
     </div>
   )
 }

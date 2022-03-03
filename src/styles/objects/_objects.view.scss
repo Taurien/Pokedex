@@ -1,8 +1,19 @@
 .o-view {
     display: flex;
     flex-direction: column;
+
+    &__txt {
+        text-align: center;
+        span {
+            text-transform: capitalize;
+        }
+    }
 }
 
 .o-view-home {
     align-items: center;
+}
+
+.o-view-info {
+    // align-items: center;
 }

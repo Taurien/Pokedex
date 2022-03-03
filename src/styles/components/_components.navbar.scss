@@ -1,45 +1,111 @@
+// border: 1px solid #474a4d;
 .c-navbar {
-    width: 100%;
-    color: white;
-    background-color: black;
-    padding: 10px;
-    
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  padding: 10px;
 
-    @include media(pc) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+  background-color: black;
+
+  & a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  &__logo {
+    display: inherit;
+    align-items: inherit;
+  }
+
+  @include media(pc) {
+    &__nav {
+      display: inherit;
+      align-items: inherit;
     }
-    
-    
-    &__logo, &__nav {
-        display: inherit;
-        align-items: inherit;
-    }
+  }
 }
 
 .c-navbar__logo {
+    
+  span {
 
-    span {
+    font-weight: bold;
+    
+    @include font-size(25px);
 
-        font-weight: bold;
+    @include media(pc) {
         
-        @include font-size(25px);
-
-        @include media(pc) {
-            
-        }
     }
+  }
 
-    img {
-        width: 40px;
-        height: 40px;
+  img {
+    width: 40px;
+    height: 40px;
 
-        @include media(pc) {
+    @include media(pc) {
 
-        }
     }
+  }
 }
 
 .c-navbar__nav {
+  animation: 1s appear forwards;
+
+  @include media(pc) {
+    background-color: blue;
+  }
 }
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.nav-drop {
+  // border: 1px solid red;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.nav-drop__label {
+  // just fot the bucket
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // just fot the bucket
+}
+
+
+
+.nav-drop__ctn {
+  // width: 100px; //modify
+  position: absolute;
+  z-index: -2;
+  top: calc(40px); //maybe 50 
+  right: 0;
+  padding: 15px;
+
+  //
+  border-radius: 4px;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(151, 151, 255);
+  background-color: hsla(210, 3%, 15%);
+  //  
+}
+
+.nav-drop__items{
+  margin: 5px 0;
+}
+
+  
+  

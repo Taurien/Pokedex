@@ -1,5 +1,6 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import DropDown from '../DropDown/DropDown'
 
 const Pkmn = ({ data }) => {
 
@@ -50,11 +51,31 @@ const Pkmn = ({ data }) => {
         })
     }
 
-    const gameIndexs = () => (
-        game_indices.map((el, index) =>
-            <p key={index}>#{el.game_index} in {el.version.name}</p>
-        )
-    )
+    
+    const gameIndexs = () => {
+        if (game_indices.length !== 0) {
+            const indices = game_indices.map((el, index) =>
+                    <span className="custom123" key={index}>
+                        <p>#{el.game_index} in {el.version.name}</p>
+                    </span>
+                )
+
+            return (
+                <>
+                    <div className="c-pkmn__indices">
+                        <DropDown
+                            label='Index in-game'
+                            lv1='test4'
+                            lv2='test5'
+                            lv3='test6'
+                        >
+                            {indices}
+                        </DropDown>
+                    </div>
+                </>
+            )
+        } 
+    }
 
     const displayTypes = () => (
         types.map(el => 
@@ -63,11 +84,11 @@ const Pkmn = ({ data }) => {
     )
 
     return (
-        <div className='c-pkmn'>
+        <div className='o-unit c-pkmn'>
 
-            <div className='c-pkmn__uid'>
+            <div className='o-unit__uid c-pkmn__uid'>
                 <h1>{name}</h1>
-                <h2># {id}</h2>
+                <h2>#{id}</h2>
             </div>
 
             <div className='c-pkmn__img'>
@@ -91,16 +112,11 @@ const Pkmn = ({ data }) => {
                 { displayAbilities() }
             </div>
 
-            {/* <div className='pk_stats'> */}
-                { displayStats() }
-            {/* </div> */}
+            { displayStats() }
 
-            
 
             {/* dropdown? */}
-            <div className='c-pkmn__indices'>
-                { gameIndexs() }
-            </div>
+            { gameIndexs() }
 
         </div>
     )

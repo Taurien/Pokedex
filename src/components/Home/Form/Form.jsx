@@ -15,14 +15,14 @@ const Form = ({ triggerFetch, setRandom }) => {
 
     // data and functions from contexts
     const { formKeys, setRequested } = useContext(InfoContext)
-    const { watch, register, unregister, handleSubmit, formState: { errors } } = useFormContext();
+    const { register, unregister, reset, resetField, handleSubmit, formState: { errors } } = useFormContext();
 
     const [ select, setSelect ] = useState(false)
     const [ searchB, setSearchB ] = useState(false)
 
     // onSubmit form function
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
         const { id_OR_name, ...res } = data
         const req = Object.values(res)[0]
 
@@ -33,6 +33,8 @@ const Form = ({ triggerFetch, setRandom }) => {
             id_OR_name: id_OR_name_lowered,
         })
         triggerFetch(req, id_OR_name_lowered)
+        reset()
+        
     }
 
     const cleanForm = (e) => {
@@ -47,9 +49,10 @@ const Form = ({ triggerFetch, setRandom }) => {
         setPastValue(key)
     }
 
-    const cleanIt = () => {
+    const clean = () => {
+        setSelect(true)
         setSearchB(false)
-        setSelect(false)
+        resetField('id_OR_name')
     }
 
     return (
@@ -61,7 +64,10 @@ const Form = ({ triggerFetch, setRandom }) => {
 
             <span>what are u looking for</span>
 
-            <div className='c-form__all_options' onClick={() => setSelect(true)} onChange={() => setSearchB(false)}>
+            <div className='c-form__all_options'
+                onClick={clean}
+                // onChange={() => setSearchB(false)}
+            >
                 <Options
                     labelTxt={'Berry'}
                     svg={'🍒'}

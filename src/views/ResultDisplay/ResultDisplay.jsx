@@ -4,22 +4,40 @@ import { Link } from 'react-router-dom'
 import InfoContext from '../../context/InfoContext'
 
 import Pkmn from '../../components/Custom/Pkmn/Pkmn'
-import Result from '../../components/ResultDisplay/Result'
+import Item from '../../components/Custom/Item/Item'
+import Result from '../../components/Custom/Result/Result'
 
 const PkmnDisplay = () => {
 
     const { requested, formKeys, info } = useContext(InfoContext)
 
     const isPkmn = requested.endpoint === 'pokemon'
+    const isItem = requested.endpoint === 'item'
 
     return (
-        <div className='c-view c-view-ifno'>
-            {/* <p>showing results for: {`${info.name}`}</p> */}
-            <p>showing results for:</p>
+        <div className='o-view o-view-info'>
+            <p className='o-view__txt'>
+                showing results for: <br />
+                <span>{requested.endpoint}</span>
+            </p>
 
             {
                 isPkmn &&
                     <Pkmn
+                        data={info}
+                    />
+            }
+
+            {
+                isItem && 
+                    <Item 
+                        data={info}
+                    />
+            }
+
+            {
+                !isPkmn && !isItem &&
+                    <Result
                         data={info}
                     />
             }
