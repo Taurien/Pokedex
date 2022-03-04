@@ -21,7 +21,7 @@ function App() {
       <MainLayout>
         
         <Routes>
-          <Route path="/pokedex">
+          <Route path="/poke-finder">
             <Route index element={<Home />} />
             <Route path="test" element={<Test />} />
             <Route path="pokeinfo/:result" element={<ResultDisplay />} />

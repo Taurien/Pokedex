@@ -109,7 +109,7 @@ const Home = () => {
         <Link to={'test'}>
           <h3>go to test1</h3>
         </Link>
-        <Link to={'/pokedex/test'}>
+        <Link to={'/poke-finder/test'}>
           <h3>go to test4</h3>
         </Link>
       </div> */}

@@ -1,4 +1,5 @@
 .o-view {
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
 
@@ -9,7 +10,8 @@
         }
     }
 }
-
+.o-view-home, .o-view-info {
+}
 .o-view-home {
     align-items: center;
 }

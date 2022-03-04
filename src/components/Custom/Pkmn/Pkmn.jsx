@@ -62,16 +62,21 @@ const Pkmn = ({ data }) => {
 
             return (
                 <>
-                    <div className="c-pkmn__indices">
+                    {/* <div className="c-pkmn__indices"> */}
                         <DropDown
                             label='Index in-game'
-                            lv1='test4'
-                            lv2='test5'
-                            lv3='test6'
+                            classes={{
+                                lv1: 'indices-drop c-pkmn__indices',
+                                lv2: 'indices-drop__label',
+                                lv3: 'indices-drop__ctn',
+                                lv4: 'indices-drop__items',
+                                ctn_open: 'indices-drop__ctn-open',
+                                ctn_closed: 'indices-drop__ctn-closed',
+                            }}
                         >
                             {indices}
                         </DropDown>
-                    </div>
+                    {/* </div> */}
                 </>
             )
         } 

@@ -29,12 +29,13 @@
 }
 
 .o-dropdown {
-  overflow: visible;
+  position: relative;
   z-index: 2;
   
   &__btn-label {
     width: 100%;
     height: 100%;
+    z-index: 4;
     cursor: pointer;
 
     transition: filter 300ms;
@@ -48,17 +49,15 @@
     flex-direction: column;
     align-items: center;
   }
-
+  
   &__item {
   }
 }
 
 .ctn{
   &__open {
-    animation: 0.5s slideIn forwards;
   }
   &__closed {
-    display: none;
   }
 }
 

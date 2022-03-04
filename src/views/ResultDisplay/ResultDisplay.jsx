@@ -43,7 +43,7 @@ const PkmnDisplay = () => {
             }
 
 
-            <Link to={'/pokedex'}>Back</Link>
+            <Link to={'/poke-finder'}>Back</Link>
 
 
         </div>

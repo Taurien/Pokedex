@@ -6,7 +6,7 @@ const Test = () => {
   const navigate = useNavigate()
 
   const triggerHome2 = () => {
-    navigate('/pokedex')
+    navigate('/poke-finder')
     console.log('soy 2 H')
   }
   
@@ -17,10 +17,10 @@ const Test = () => {
 
 
         <div>
-        <button onClick={triggerHome2}>{`navigate('/pokedex')`}</button>
+        <button onClick={triggerHome2}>{`navigate('/poke-finder')`}</button>
         </div>
 
-        <Link to={'/pokedex'}>
+        <Link to={'/poke-finder'}>
           <h3>go to home2</h3>
         </Link>
     </div>

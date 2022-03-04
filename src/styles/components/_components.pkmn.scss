@@ -68,10 +68,36 @@
     }
 
     &__indices {
+        display: flex;
+        flex-direction: column;
+        position: relative;
         width: 100%;
     }
 }
 
-.test6 {
-  animation: 0.5s slideIn forwards;
+.indices-drop {
+    border: 1px solid fuchsia;
 }
+
+.indices-drop__label {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+}  
+
+.indices-drop__ctn {
+
+}
+
+.indices-drop__items {
+
+}
+
+.indices-drop__ctn-open {
+
+}
+
+.indices-drop__ctn-closed {
+
+}
+

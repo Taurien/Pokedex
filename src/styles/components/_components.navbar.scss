@@ -3,6 +3,9 @@
   width: 100%;
   padding: 10px;
 
+  position: fixed; //
+  z-index: 4;
+
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -73,7 +76,6 @@
   // border: 1px solid red;
   width: 40px;
   height: 40px;
-  position: relative;
 }
 
 .nav-drop__label {
@@ -91,9 +93,10 @@
   // width: 100px; //modify
   position: absolute;
   z-index: -2;
-  top: calc(40px); //maybe 50 
+  // top: calc(40px); //maybe 50 
   right: 0;
   padding: 15px;
+  // height: max-content;
 
   //
   border-radius: 4px;
@@ -101,7 +104,22 @@
   background-color: rgb(151, 151, 255);
   background-color: hsla(210, 3%, 15%);
   //  
+
+  transition: all 500ms;
+
 }
+
+.nav-drop__ctn-open {
+
+}
+
+.nav-drop__ctn-closed {
+  transform: translateY(-15%);
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
 
 .nav-drop__items{
   margin: 5px 0;
