@@ -70,23 +70,21 @@
     &__indices {
         display: flex;
         flex-direction: column;
-        position: relative;
         width: 100%;
     }
 }
 
 .indices-drop {
-    border: 1px solid fuchsia;
+
 }
 
 .indices-drop__label {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
+    //x
 }  
 
 .indices-drop__ctn {
-
+    max-height: 0;
+    overflow: hidden;
 }
 
 .indices-drop__items {
@@ -94,10 +92,18 @@
 }
 
 .indices-drop__ctn-open {
+    max-height: 1000px;
 
+    transition: 
+        max-height 1500ms ease-in,
+        opacity 300ms ease 200ms;
 }
 
 .indices-drop__ctn-closed {
+    opacity: 0;
 
+    transition: 
+        max-height 1500ms ease-out,
+        opacity 1500ms ease,
 }
 

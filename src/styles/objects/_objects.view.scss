@@ -3,13 +3,30 @@
     display: flex;
     flex-direction: column;
 
-    &__txt {
+    &__header {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+}
+
+.header {
+    &-headline {
         text-align: center;
-        span {
+        p {
             text-transform: capitalize;
         }
     }
+
+    &-back {
+        position: absolute;
+        left: 0;
+    }
 }
+
 .o-view-home, .o-view-info {
 }
 .o-view-home {

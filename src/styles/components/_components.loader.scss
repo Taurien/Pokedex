@@ -16,13 +16,14 @@
 }
 .c-loader__load {
     width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid blue;
-    border-bottom: 8px solid blue;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+    // height: 60px;
+    // border-radius: 50%;
+    // border: 8px solid #f3f3f3;
+    // border-top: 8px solid blue;
+    // border-bottom: 8px solid blue;
+
+    -webkit-animation: spin 1600ms linear infinite;
+    animation: spin 1600ms linear infinite;
 }
 
 @-webkit-keyframes spin {

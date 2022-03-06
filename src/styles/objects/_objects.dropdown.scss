@@ -16,13 +16,13 @@
     opacity: 1;
 
     transition:
-      height 100ms ease 10ms,
-      width 100ms ease 10ms,
+      height 100ms ease,
+      width 100ms ease,
       opacity 700ms ease 100ms;
   }
   &__false {
     transition:
-      opacity 700ms ease 10ms,
+      opacity 700ms ease,
       height 100ms ease 700ms,
       width 100ms ease 700ms;
   }

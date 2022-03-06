@@ -18,7 +18,7 @@ const Preview = ({ data }) => {
           </>
         }
         <Link to={`pokeinfo/${name}`}>
-          <button>See more abt this</button>
+          <button className='c-btn'>See more abt this</button>
         </Link>
       </div>
   )

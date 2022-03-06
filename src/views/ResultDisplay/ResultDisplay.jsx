@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import InfoContext from '../../context/InfoContext'
 
@@ -9,6 +9,8 @@ import Result from '../../components/Custom/Result/Result'
 
 const PkmnDisplay = () => {
 
+    const navigate = useNavigate()
+
     const { requested, formKeys, info } = useContext(InfoContext)
 
     const isPkmn = requested.endpoint === 'pokemon'
@@ -16,10 +18,18 @@ const PkmnDisplay = () => {
 
     return (
         <div className='o-view o-view-info'>
-            <p className='o-view__txt'>
-                showing results for: <br />
-                <span>{requested.endpoint}</span>
-            </p>
+
+            <div className='o-view__header'>
+
+                <Link className='header-back' to={'/poke-finder'}>Back</Link>
+
+                <span className='header-headline'>
+                    showing results for: <br />
+                    <p>{requested.endpoint}</p>
+                </span>
+
+            </div>
+
 
             {
                 isPkmn &&
@@ -43,7 +53,6 @@ const PkmnDisplay = () => {
             }
 
 
-            <Link to={'/poke-finder'}>Back</Link>
 
 
         </div>

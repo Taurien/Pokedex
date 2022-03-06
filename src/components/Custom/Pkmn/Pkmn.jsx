@@ -66,7 +66,7 @@ const Pkmn = ({ data }) => {
                         <DropDown
                             label='Index in-game'
                             classes={{
-                                lv1: 'indices-drop c-pkmn__indices',
+                                lv1: 'c-pkmn__indices indices-drop',
                                 lv2: 'indices-drop__label',
                                 lv3: 'indices-drop__ctn',
                                 lv4: 'indices-drop__items',
