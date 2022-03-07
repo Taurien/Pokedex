@@ -11,7 +11,7 @@ const PkmnDisplay = () => {
 
     const navigate = useNavigate()
 
-    const { requested, formKeys, info } = useContext(InfoContext)
+    const { requested, info } = useContext(InfoContext)
 
     const isPkmn = requested.endpoint === 'pokemon'
     const isItem = requested.endpoint === 'item'

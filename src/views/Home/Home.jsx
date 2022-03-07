@@ -17,7 +17,8 @@ const Home = () => {
   const navigate = useNavigate()
   
   // states  
-  const { endpoints, formKeys, handleFormKeys, setRequested, info, setInfo } = useContext(InfoContext)
+  const { requested, endpoints, formKeys, handleFormKeys, setRequested, info, setInfo } = useContext(InfoContext)
+
 
   // data and function from custom fetch
   const { triggerFetch, fetchedData, isloading, error } = useFetch()
@@ -85,20 +86,30 @@ const Home = () => {
       {/* <button onClick={() => shiftPkmn("previous")}>PREV</button> */}
       {/* <button onClick={() => shiftPkmn("next")}>NEXT</button> */}
 
-      { isloading &&
-          <div className='c-preview'>
-            <Loader/>
-          </div>
-      }
 
-      {
-        info && preview &&
-        <div className='c-preview' onClick={() => setPreview(!preview)}>
-          <Preview
-            data={info}
-          />
-        </div>
-      }
+      <div 
+        className={`
+          c-preview
+          ${isloading? 'c-preview-active' :
+          info && preview? 'c-preview-active' : ''}
+        `}
+      >
+
+        { isloading &&
+              <Loader/>
+        }
+
+        {
+          info && preview &&
+            <Preview
+              closed={() => setPreview(!preview)}
+              data={info}
+            />
+        }
+
+        <div className='c-preview__bg' onClick={() => setPreview(!preview)}></div>
+
+      </div>
 
       {/* <span className='bulbapedia'>
         Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for greater details.

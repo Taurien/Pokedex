@@ -11,14 +11,60 @@ const Result = ({ data }) => {
             const title = el.charAt(0).toUpperCase() + el.slice(1).replace(/_/g, " ")
 
             if (typeof(data[el]) === 'object') {
-                console.log(el, typeof(data[el]))
-                console.log(data[el])
-                
-                return <><p key={el}>TODO</p></>
-                // console.log(data[el])
-                // data[el].forEach(el => {
-                //     console.log(el)
-                // })
+
+                const childs = []
+
+                const obj = data[el]
+
+                if (Array.isArray(obj)) {
+
+                    obj.map(elm => {
+
+                        if(elm['name']) {
+                                childs.push(<><p>{elm['name']}</p></>)
+                        } else {
+                                console.log(el, elm ,'BYE')
+                                // elm.flavor.name
+                                // elm.berry.name
+
+                                // elm.effect
+
+                                // elm.description
+                                
+                                // elm.generation.name
+
+                                // elm.encounter_method.name
+                                // elm.pokemon.name
+
+                                // elm.pokemon_species.name
+
+                                // elm.move_battle_style.name
+
+                                // elm.awesome_name
+                        }
+                    })
+                } else {
+
+                    if (obj === null) return
+                    else if (obj['name']) {
+                        childs.push(<><p>{obj['name']}</p></>)
+                    } else {
+                        console.log(obj)
+                        // obj.evolves_to
+                        // obj.species
+                    }
+                    
+                }
+
+                return (
+                    <>
+                        <div key={el}>
+                            <span>{el}</span><br />
+                            {childs}
+                        </div>
+                    </>
+                )
+ 
             } else if ((typeof(data[el]) === 'boolean')) {
                 return <><p key={el}>{title}: {data[el].toString()}</p></>
             } else {

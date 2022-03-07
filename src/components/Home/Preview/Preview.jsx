@@ -1,11 +1,20 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
-const Preview = ({ data }) => {
+import InfoContext from '../../../context/InfoContext'
+
+const Preview = ({ data, closed }) => {
+
+
+const { requested } = useContext(InfoContext)
 
   const { name, id } = data
 
+  console.log(closed)
+
   return (
       <div className='c-preview__modal'>
+        <span>{requested.endpoint}</span>
         {
           name?
           <>
@@ -25,3 +34,5 @@ const Preview = ({ data }) => {
 }
 
 export default Preview
+
+
